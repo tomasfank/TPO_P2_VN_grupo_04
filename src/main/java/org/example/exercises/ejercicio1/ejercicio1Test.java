@@ -3,6 +3,7 @@ package org.example.exercises.ejercicio1;
 import org.example.exercises.ejercicio1.ejercicio1;
 import org.example.classes.QueueOfStacks;
 import org.example.classes.Stack;
+import org.example.utils.QueueOfStacksUtils;
 
 
 public class ejercicio1Test {
@@ -38,10 +39,14 @@ public class ejercicio1Test {
         */
 
 
-        int traza = ejercicio1.trace(qos);
+        //int traza = ejercicio1.trace(qos);
         int n = qos.length();
-        //QueueOfStacks traspuesta = QueueOfStacksAlgos.transpose(qos);
-        System.out.println("The trace of the Queue of Stacks is " + String.valueOf(traza));
+
+        //System.out.println("The trace of the Queue of Stacks is " + String.valueOf(traza));
+        //QueueOfStacks traspuesta = ejercicio1.transpose(qos);
+        QueueOfStacks qos1 = QueueOfStacksUtils.copy(qos);
+        QueueOfStacks qos2 = QueueOfStacksUtils.copy(qos);
+        QueueOfStacks suma = ejercicio1.addMatrices(qos, qos);
         /*
         for (int i = 0; i < n; i++){
             Stack col = traspuesta.getFirst();

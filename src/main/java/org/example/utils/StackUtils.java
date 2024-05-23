@@ -12,9 +12,9 @@ public class StackUtils {
         }
     }
 
-    public static iStack copy(iStack stack) {
-        iStack copy = new Stack();
-        iStack aux = new Stack();
+    public static Stack copy(Stack stack) {
+        Stack copy = new Stack();
+        Stack aux = new Stack();
         while (!stack.isEmpty()) {
             aux.add(stack.top());
             stack.remove();
