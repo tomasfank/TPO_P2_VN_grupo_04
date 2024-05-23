@@ -3,6 +3,7 @@ package org.example.exercises.ejercicio1;
 
 import org.example.utils.StackUtils;
 import org.example.classes.QueueOfStacks;
+import org.example.utils.QueueOfStacksUtils;
 import org.example.classes.Stack;
 
 public class ejercicio1 {
@@ -55,6 +56,28 @@ public class ejercicio1 {
         return transpose;
     }
 
+    public static QueueOfStacks addMatrices(QueueOfStacks x, QueueOfStacks y){
+        QueueOfStacks a = QueueOfStacksUtils.copy(x);
+        QueueOfStacks b = QueueOfStacksUtils.copy(y);
+        QueueOfStacks c = new QueueOfStacks();
+        int n = a.length();
+        for (int i = 0; i < n; i++){
+            Stack acol = a.getFirst();
+            Stack bcol = b.getFirst();
+            a.remove();
+            b.remove();
+            Stack ccol = new Stack();
+
+            while (!acol.isEmpty()){
+                int elem = acol.top() + bcol.top();
+                acol.remove();
+                bcol.remove();
+                ccol.add(elem);
+            }
+            c.add(ccol);
+        }
+        return c;
+    }
 
 
 
