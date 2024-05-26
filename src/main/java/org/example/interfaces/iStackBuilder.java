@@ -1,6 +1,6 @@
 package org.example.interfaces;
 
-public interface iStack {
+public interface iStackBuilder {
 
     void add(int x);
 
@@ -8,5 +8,5 @@ public interface iStack {
 
     boolean isEmpty();
 
-    int top();
+    int getTop();
 }
