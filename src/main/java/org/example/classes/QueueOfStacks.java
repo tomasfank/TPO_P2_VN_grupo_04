@@ -20,14 +20,18 @@ public class QueueOfStacks implements IQueueOfStacks {
 
     @Override
     public void remove() {
-        if (count == 0) {
+        // Análisis de la complejidad
+        // N = cantidad de elementos del QueueOfStacks
+        // N = this.array.length
+        // Complejidad: O(N)
+        if (count == 0) { // C
             System.out.println("Error, no se puede desacolar una cola vacia");
             return;
         }
-        for (int i = 0; i < this.array.length - 1; i++) {
+        for (int i = 0; i < this.array.length - 1; i++) { // N
             this.array[i] = this.array[i + 1];
         }
-        this.count--;
+        this.count--; // C
     }
 
     @Override
