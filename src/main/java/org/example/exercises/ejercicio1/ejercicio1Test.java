@@ -9,6 +9,8 @@ import org.example.utils.QueueOfStacksUtils;
 public class ejercicio1Test {
 
     public static void main(String[] args) {
+        boolean testCaso1x1 = false;
+
         QueueOfStacks qos = new QueueOfStacks();
         Stack s1 = new Stack();
         s1.add(9);
@@ -28,41 +30,32 @@ public class ejercicio1Test {
         s3.add(1);
         qos.add(s3);
 
-        /*
-         // Test de caso critico: matriz de 1x1.
-         qos.remove();
-         qos.remove();
-         qos.remove();
-         Stack s4 = new Stack();
-         s4.add(7);
-         qos.add(s4);
-        */
+        if (testCaso1x1) {
+            // Test de caso critico: matriz de 1x1.
+            qos.remove();
+            qos.remove();
+            qos.remove();
+            Stack s4 = new Stack();
+            s4.add(7);
+            qos.add(s4);
+        }
 
 
-        //int traza = ejercicio1.trace(qos);
+
+        int traza = ejercicio1.trace(qos);
         int n = qos.length();
 
-        //System.out.println("The trace of the Queue of Stacks is " + String.valueOf(traza));
+        System.out.println("La traza de qos: " + String.valueOf(traza));
         //QueueOfStacks traspuesta = ejercicio1.transpose(qos);
-        QueueOfStacks qos1 = QueueOfStacksUtils.copy(qos);
-        QueueOfStacks qos2 = QueueOfStacksUtils.copy(qos);
         QueueOfStacks suma = ejercicio1.addMatrices(qos, qos);
-        /*
-        for (int i = 0; i < n; i++){
-            Stack col = traspuesta.getFirst();
-            traspuesta.remove();
-            //System.out.print("La columna " + String.valueOf(n-i) + " de la traspuesta es: ");
-            StackAlgorithms.print(col);
-        }
-        int nT = traspuesta.length();
-        System.out.println("La traspu esta tiene " + nT + " columnas");
-        Stack col = traspuesta.getFirst();
-        traspuesta.remove();
-        System.out.println("Primera columna de la traspuesta (deberia ser [7 8 9], de arriba a abajo):");
-        while (!col.isEmpty()){
-            System.out.println(String.valueOf(col.getTop()));
-            col.remove();
-        }*/
+        System.out.println("La matriz qos:");
+        QueueOfStacksUtils.printMatrix(qos);
+        System.out.println();
+        System.out.println("La traspuesta de qos:");
+        QueueOfStacksUtils.printMatrix(ejercicio1.transpose(qos));
+        System.out.println();
+        System.out.println("La suma de qos consigo misma:");
+        QueueOfStacksUtils.printMatrix(suma);
 
 
     }
