@@ -8,7 +8,7 @@ public class Queue implements iQueue {
     int i;
 
     @Override
-    public void init() {
+    public Queue() {
         a = new int[100];
         i = 0;
     }
@@ -36,4 +36,6 @@ public class Queue implements iQueue {
     public int first() {
         return a[0];
     }
+
+    public int size() { return i;}
 }
