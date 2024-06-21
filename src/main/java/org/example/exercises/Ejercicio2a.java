@@ -1,11 +1,11 @@
 package org.adt.core;
 
-import org.adt.core.adt.GenericUtil.GenericStackUtil;
-import org.adt.core.adt.implementation.normal.Queue;
+//import org.adt.core.adt.GenericUtil.GenericStackUtil;
+//import org.adt.core.adt.implementation.normal.Queue;
 import org.adt.core.adt.implementation.generic.GenericStack;
 
 public class Ejercicio2a {
-
+/*
     public static void main(String[] args) {
         GenericStack stack = new GenericStack<>();
 
@@ -45,4 +45,5 @@ public class Ejercicio2a {
         }
 
 }
+*/
 }
