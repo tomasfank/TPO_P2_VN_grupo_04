@@ -7,7 +7,6 @@ public class Queue implements iQueue {
     int [] a;
     int i;
 
-    @Override
     public Queue() {
         a = new int[100];
         i = 0;
