@@ -1,4 +1,4 @@
-package org.adt.core.adt.implementation.generic;
+package org.example.classes;
 import org.adt.core.adt.definition.iGenericStack;
 
 public class GenericStack<T> implements iGenericStack<T> {
