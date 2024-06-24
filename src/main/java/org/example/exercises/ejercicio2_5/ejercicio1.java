@@ -1,7 +1,5 @@
-package org.example.exercises.ejercicio2_3;
+package org.example.exercises.ejercicio2_5;
 import org.example.classes.GenericSet;
-import org.example.classes.Stack;
-import org.example.interfaces.iGenericStack;
 import org.example.classes.GenericStack;
 
 public class ejercicio1 {

@@ -1,6 +1,5 @@
-package org.example.exercises.ejercicio2_3;
+package org.example.exercises.ejercicio2_5;
 import org.example.classes.GenericStack;
-import org.example.interfaces.iGenericStack;
 
 public class ejercicio3 {
     public static boolean parenthesesBalanced(String s) {
