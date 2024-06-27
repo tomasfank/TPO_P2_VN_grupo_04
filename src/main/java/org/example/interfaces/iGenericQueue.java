@@ -1,4 +1,4 @@
-package org.adt.core.adt.definition;
+package org.example.interfaces;
 
 public interface iGenericQueue<T> {
     void add(T element);
