@@ -1,6 +1,6 @@
 package org.example.interfaces;
 
-public interface iQueue {
+public interface iQueueBuilder {
 
     void add(int x);
 

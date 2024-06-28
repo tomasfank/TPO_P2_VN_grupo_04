@@ -4,7 +4,10 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/misc.xml
+.idea/sonarlint/*
 .idea/modules.xml
+.idea/misc.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/

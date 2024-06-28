@@ -1,6 +1,6 @@
 package org.example.interfaces;
 
-public interface iQueue {
+public interface iStackBuilder {
 
     void add(int x);
 
@@ -8,5 +8,5 @@ public interface iQueue {
 
     boolean isEmpty();
 
-    int first();
+    int getTop();
 }
