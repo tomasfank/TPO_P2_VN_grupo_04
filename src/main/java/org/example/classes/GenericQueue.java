@@ -1,6 +1,6 @@
-package org.adt.core.adt.implementation.generic;
+package org.example.classes;
 
-import org.adt.core.adt.definition.iGenericQueue;
+import org.example.interfaces.iGenericQueue;;
 
 public class GenericQueue<T> implements iGenericQueue<T> {
 

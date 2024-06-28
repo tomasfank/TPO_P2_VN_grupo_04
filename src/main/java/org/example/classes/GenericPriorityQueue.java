@@ -1,6 +1,6 @@
 package org.example.classes;
 
-import org.adt.core.adt.definition.iGenericPriorityQueue;
+import org.example.interfaces.iGenericPriorityQueue;
 
 public class GenericPriorityQueue<T> implements iGenericPriorityQueue<T> {
 

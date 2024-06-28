@@ -31,7 +31,7 @@ public class ejercicio1 {
                 if (row_ind < N-1-col_ind){
                     col.remove(); // C
                 }else{
-                    elem = col.top(); // C
+                    elem = col.getTop(); // C
                     trace += elem; // C
                 }
             }
@@ -69,7 +69,7 @@ public class ejercicio1 {
             while (!col.isEmpty()){ // N veces --> N*( O(N) + 5C) ~ N*O(N) ~ O(N^2)
                 outcol = transpose.getFirst(); // C
                 transpose.remove(); // O(N)
-                elem = col.top(); // C
+                elem = col.getTop(); // C
                 outcol.add(elem); // C
                 col.remove(); // C
                 transpose.add(outcol); // C
@@ -102,7 +102,7 @@ public class ejercicio1 {
 
             int elem;
             while (!acol.isEmpty()){ // N veces --> O(N)
-                elem = acol.top() + bcol.top(); // C + C + C
+                elem = acol.getTop() + bcol.getTop(); // C + C + C
                 acol.remove(); // C
                 bcol.remove(); // C
                 ccol.add(elem); // C

@@ -36,7 +36,7 @@ public class Stack implements iStack {
     }
 
     @Override
-    public int top() {
+    public int getTop() {
         return a[i-1];
     }
 }

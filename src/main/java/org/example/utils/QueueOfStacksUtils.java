@@ -83,7 +83,7 @@ public class QueueOfStacksUtils {
                 Stack stack = columns.get(col);
                 StackUtils.revert(stack);
                 for (int row = numRows - 1; row >= 0 && !stack.isEmpty(); row--) {
-                    matrix[row][col] = stack.top();
+                    matrix[row][col] = stack.getTop();
                     stack.remove();
                 }
             }

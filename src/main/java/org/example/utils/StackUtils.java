@@ -7,7 +7,7 @@ public class StackUtils {
 
     public static void print(iStack stack) {
         while (!stack.isEmpty()) {
-            System.out.println(stack.top());
+            System.out.println(stack.getTop());
             stack.remove();
         }
     }
@@ -23,12 +23,12 @@ public class StackUtils {
         Stack copy = new Stack(); // C
         Stack aux = new Stack(); // C
         while (!stack.isEmpty()) { // N veces --> 3*C*N ~ O(N)
-            aux.add(stack.top()); // C + C = 2*C
+            aux.add(stack.getTop()); // C + C = 2*C
             stack.remove(); // C
         }
         while (!aux.isEmpty()) { // N veces --> 5*C*N ~ O(N)
-            stack.add(aux.top()); // C + C
-            copy.add(aux.top()); // C + C
+            stack.add(aux.getTop()); // C + C
+            copy.add(aux.getTop()); // C + C
             aux.remove(); // C
         }
         return copy;
@@ -50,15 +50,15 @@ public class StackUtils {
         iStack aux = new Stack(); // C
         iStack aux2 = new Stack(); // C
         while (!stack.isEmpty()) { // N veces --> N*3C ~ O(N)
-            aux.add(stack.top()); // C + C
+            aux.add(stack.getTop()); // C + C
             stack.remove(); // C
         }
         while (!aux.isEmpty()) { // N veces --> N*3C ~ O(N)
-            aux2.add(aux.top()); // C + C
+            aux2.add(aux.getTop()); // C + C
             aux.remove(); // C
         }
         while (!aux2.isEmpty()) { // Idem: O(N)
-            stack.add(aux2.top());
+            stack.add(aux2.getTop());
             aux2.remove();
         }
     }
