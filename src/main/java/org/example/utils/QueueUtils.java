@@ -37,7 +37,7 @@ public class QueueUtils {
             queue.remove();
         }
         while (!aux.isEmpty()) {
-            queue.add(aux.top());
+            queue.add(aux.getTop());
             aux.remove();
         }
     }
