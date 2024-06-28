@@ -1,32 +1,36 @@
 package org.example.exercises.ejercicio7;
 
-import org.example.interfaces.iStack;
-import org.example.classes.dynamic.DynamicStack;
+import org.example.classes.PriorityQueueEj7;
 
 public class ejercicio7 {
+
+        public static <T> void modifyPriority(PriorityQueueEj7<T> queue, T element, int newPriority) {
+            queue.changePriority(element, newPriority);
+        }
+
         public static void main(String[] args) {
-            // Crear una pila con capacidad máxima de 3 elementos
-            DynamicStack stack = new DynamicStack(3);
+            PriorityQueueEj7<String> queue = new PriorityQueueEj7<>();
+            queue.add("a", 3);
+            queue.add("b", 1);
+            queue.add("c", 2);
 
-            // Apilar elementos
-            stack.add(10);
-            stack.add(20);
-            stack.add(30);
-
-            System.out.println("Tope: " + stack.getTop());
-            System.out.println("Tamaño: " + stack.getSize());
-
-            // Intentar apilar otro elemento debería lanzar una excepción
-            try {
-                stack.add(40);
-            } catch (RuntimeException e) {
-                System.out.println(e.getMessage());  // No se puede apilar, la pila ha alcanzado su capacidad máxima
+            System.out.println("Original queue:");
+            while (!queue.isEmpty()) {
+                System.out.println(queue.getFirst() + " - Prioridad: " + queue.getPriority(queue.getFirst()));
+                queue.remove();
             }
 
-            // Desapilar un elemento
-            stack.remove();
-            System.out.println("Tope antes del pop: " + stack.getTop());
-            System.out.println("Tamaño antes del pop: " + stack.getSize());
+            queue.add("a", 3);
+            queue.add("b", 1);
+            queue.add("c", 2);
+
+            modifyPriority(queue, "b", 4);
+
+            System.out.println("Queue después de modificar prioridad:");
+            while (!queue.isEmpty()) {
+                System.out.println(queue.getFirst() + " - Prioridad: " + queue.getPriority(queue.getFirst()));
+                queue.remove();
+            }
         }
     }
 
