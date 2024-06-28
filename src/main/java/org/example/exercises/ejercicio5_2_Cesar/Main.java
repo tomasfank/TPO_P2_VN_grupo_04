@@ -2,9 +2,13 @@ package org.example.exercises.ejercicio5_2_Cesar;
 
 import org.example.classes.GenericStaticDictionary;
 
+
 public class Main {
     public static void main(String[] args) {
+        int clave = 7; //reemplazar con un valor entero cualquiera.
+
         GenericStaticDictionary<Character, Double> dictionary = new GenericStaticDictionary<>();
+
 
         // Letras del alfabeto español y sus frecuencias relativas
         char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
@@ -25,7 +29,37 @@ public class Main {
             System.out.println("Letra: " + letter + " - Frecuencia: " + Math.round(10000.0 * dictionary.get(letter))/100.0 + "%");
         }
 
+        System.out.println();
         // Fuente de las frecuencias
         System.out.println("Fuente de las frecuencias: https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras");
+        System.out.println();
+
+        // ---------------------------------------------------------------------------------------------------------
+        // Demo de la clase CesarCipher
+        CesarCipher cesarCipher = new CesarCipher();
+
+        String frase =
+                "VAMOS A MORIR, Y ESO NOS CONVIERTE EN LOS AFORTUNADOS. LA MAYORIA DE LA GENTE NO MORIRA NUNCA, \n" +
+                        "PORQUE NO VA A NACER NUNCA. LA GENTE QUE PODRIA HABER ESTADO EN MI LUGAR, PERO QUE, DE HECHO, \n" +
+                        "NUNCA VERA LA LUZ DEL DIA, SOBREPASA CON CRECES EL NUMERO DE GRANOS DEL DESIERTO DEL SAHARA.\n" +
+                        "SIN DUDA, ENTRE ESOS ESPIRITUS NO NACIDOS HAY POETAS MAS GRANDES QUE KEATS, CIENTIFICOS MAS GRANDES QUE NEWTON.\n" +
+                        "SABEMOS ESTO PORQUE EL CONJUNTO DE PERSONAS POSIBLES QUE PERMITE NUESTRO ADN SUPERA \n" +
+                        "DE FORMA MASIVA AL CONJUNTO DE LAS PERSONAS QUE EXISTEN. A PESAR DE ESTA ABRUMADORAMENTE PEQUEÑA POSIBILIDAD, \n" +
+                        "SOMOS TU Y YO, EN NUESTRA VIDA ORDINARIA, QUIENES ESTAMOS AQUI. NOSOTROS, LOS POCOS PRIVILEGIADOS QUE GANAMOS \n" +
+                        "LA LOTERIA DE NACER CONTRA TODO PRONOSTICO, ¿COMO NOS ATREVEMOS A LLORIQUEAR POR NUESTRO INEVITABLE REGRESO \n" +
+                        "A ESE ESTADO PREVIO DEL QUE LA INMENSA MAYORIA JAMAS ESCAPO?";
+        GenericStaticDictionary<Character, Double> frecuencias = cesarCipher.calcularFrecuencias(frase);
+        String fraseEncriptada = cesarCipher.encriptar(frase, clave);
+        System.out.println("La frase encriptada es:");
+        System.out.println();
+        System.out.println(fraseEncriptada);
+        int shift;
+        shift = cesarCipher.encontrarClave(fraseEncriptada);
+        String textoDesencriptado =cesarCipher.encriptar(fraseEncriptada,27-shift);
+        System.out.println();
+        System.out.println("La frase desencriptada:");
+        System.out.println();
+        System.out.println(textoDesencriptado);
+
     }
 }

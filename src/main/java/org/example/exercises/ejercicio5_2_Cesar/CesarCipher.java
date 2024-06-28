@@ -4,7 +4,7 @@ import org.example.classes.GenericStaticDictionary;
 
 public class CesarCipher {
 
-    private final GenericStaticDictionary<Character, Double> frequencies;
+    public final GenericStaticDictionary<Character, Double> frequencies;
 
     public CesarCipher() {
         this.frequencies = new GenericStaticDictionary<>();
@@ -13,6 +13,7 @@ public class CesarCipher {
 
     private void initializeFrequencies() {
         // Letras del alfabeto español y sus frecuencias relativas
+        // Fuente: https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras
         char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
                 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
         double[] proportions = {0.1253, 0.0142, 0.0468, 0.0586, 0.1368, 0.0069, 0.0101, 0.0070,
@@ -26,6 +27,12 @@ public class CesarCipher {
         }
     }
 
+    /**
+     *
+     * @param shift
+     * @return un diccionario que representa la biyeccion del alfabeto español luego de aplicar
+     * una clave que "shiftea" todo el alfabeto.
+     */
     public GenericStaticDictionary<Character, Character> createCipher(int shift) {
         //if (shift < 0 || shift > 26) {
         //    throw new IllegalArgumentException("El valor de shift debe estar entre 0 y 26");
@@ -47,6 +54,12 @@ public class CesarCipher {
         return cipher;
     }
 
+    /**
+     *
+     * @param texto
+     * @param shift
+     * @return el texto encriptado segun la clave shift
+     */
     public String encriptar(String texto, int shift) {
         GenericStaticDictionary<Character, Character> cipher = createCipher(shift);
         StringBuilder encryptedText = new StringBuilder();
@@ -66,6 +79,13 @@ public class CesarCipher {
         return encryptedText.toString();
     }
 
+    /**
+     *
+     * @param alphabet
+     * @param target
+     * @return true si el char target está en el array de char's alphabet
+     * esta funcion es auxiliar para el metodo calcularFrecuencias
+     */
     public static boolean alphabetContains(char[] alphabet, char target) {
         for (char c : alphabet) {
             if (c == target) {
@@ -74,6 +94,13 @@ public class CesarCipher {
         }
         return false;
     }
+
+    /**
+     *
+     * @param texto
+     * @return un Diccionario Character --> Double, que representa una tabla de
+     * frecuencias calculada empíricamente sobre el input texto (posiblemente, un texto encriptado)
+     */
     public GenericStaticDictionary<Character, Double> calcularFrecuencias(String texto) {
         GenericStaticDictionary<Character, Double> frecuencias = new GenericStaticDictionary<>();
         char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
@@ -88,7 +115,8 @@ public class CesarCipher {
         int totalLetters = 0;
         for (char c : texto.toCharArray()) {
             c = Character.toUpperCase(c);
-            if (alphabetContains(letters, c)) {
+            if (alphabetContains(letters, c)) { // si el char está en el alfabeto español,
+                                                // me influye en la tabla de frecuencias. Si no, no.
                 frecuencias.add(c, frecuencias.get(c) + 1.0);
                 totalLetters++;
             }
@@ -103,18 +131,83 @@ public class CesarCipher {
         return frecuencias;
     }
 
-    public static void main(String[] args) {
-        CesarCipher cesarCipher = new CesarCipher();
+    /**
+     *
+     * @param dic1
+     * @param dic2
+     * @return Calcula la similitud coseno entre dos tablas de frecuencias relativas,
+     * pensadas como vectores ordenados (por el orden léxicográfico del dominio).
+     */
+    public double calcularSimilitudCoseno(GenericStaticDictionary<Character, Double> dic1,
+                                          GenericStaticDictionary<Character, Double> dic2) {
+        char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+                'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
-        // Prueba del cifrado
-        String texto = "HOLA MUNDO";
-        int shift = 30;
-        String textoCifrado = cesarCipher.encriptar(texto, shift);
-        System.out.println("Texto original: " + texto);
-        System.out.println("Texto cifrado: " + textoCifrado);
+        double dotProduct = 0.0;
+        double normDic1 = 0.0;
+        double normDic2 = 0.0;
 
-        String frase = "VAMOS A MORIR, Y ESO NOS CONVIERTE EN LOS AFORTUNADOS. LA MAYORIA DE LA GENTE NO MORIRA NUNCA, PORQUE NO VA A NACER NUNCA. LA GENTE QUE PODRIA HABER ESTADO EN MI LUGAR, PERO QUE, DE HECHO, NUNCA VERA LA LUZ DEL DIA, SOBREPASA CON CRECES EL NUMERO DE GRANOS DEL DESIERTO DEL SAHARA. SIN DUDA, ENTRE ESOS ESPIRITUS NO NACIDOS HAY POETAS MAS GRANDES QUE KEATS, CIENTIFICOS MAS GRANDES QUE NEWTON. SABEMOS ESTO PORQUE EL CONJUNTO DE PERSONAS POSIBLES QUE PERMITE NUESTRO ADN SUPERA DE FORMA MASIVA AL CONJUNTO DE LAS PERSONAS QUE EXISTEN. A PESAR DE ESTA ABRUMADORAMENTE PEQUEÑA POSIBILIDAD, SOMOS TU Y YO, EN NUESTRA VIDA ORDINARIA, QUIENES ESTAMOS AQUI. NOSOTROS, LOS POCOS PRIVILEGIADOS QUE GANAMOS LA LOTERIA DE NACER CONTRA TODO PRONOSTICO, ¿COMO NOS ATREVEMOS A LLORIQUear POR NUESTRO INEVITABLE REGRESO A ESE ESTADO PREVIO DEL QUE LA INMENSA MAYORIA JAMAS ESCAPO?";
-        GenericStaticDictionary<Character, Double> frecuencias = cesarCipher.calcularFrecuencias(frase);
-        System.out.println(frecuencias.get('A'));
+        for (char letter : letters) {
+            double freq1 = dic1.get(letter);
+            double freq2 = dic2.get(letter);
+
+            dotProduct += freq1 * freq2;
+            normDic1 += Math.pow(freq1, 2);
+            normDic2 += Math.pow(freq2, 2);
+        }
+
+        return dotProduct / (Math.sqrt(normDic1) * Math.sqrt(normDic2));
+    }
+
+    /**
+     *
+     * @param F
+     * @param C
+     * @return la composición F o C, pensando estos diccionarios como funciones.
+     */
+    public static GenericStaticDictionary<Character, Double> componerFreqCipher(
+            GenericStaticDictionary<Character, Double> F,
+            GenericStaticDictionary<Character, Character> C) {
+
+        GenericStaticDictionary<Character, Double> resultado = new GenericStaticDictionary<>();
+        char[] letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+                'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+        for (char letter : letters) {
+            Character mappedLetter = C.get(letter);
+            Double frequency = F.get(mappedLetter);
+            resultado.add(letter, frequency);
+        }
+
+        return resultado;
+    }
+
+    /**
+     *
+     * @param textoEncriptado
+     * @return la clave tal que this.encriptar(textoOriginal, clave) devuelve textoEncriptado
+     */
+    public int encontrarClave(String textoEncriptado){
+        GenericStaticDictionary<Character, Double> freqEnc = calcularFrecuencias(textoEncriptado);
+        Double[] similitudes = new Double[27];
+
+        // Calculo el array de las similitudes-coseno entre todas las tablas de frecuencia que
+        // puedo obtener SHIFTEANDO el textoEncriptado, y la tabla de frecuencias maestra que
+        // saqué de wikipedia, e inicializo cada vez que creo un objeto CesarCipher.
+        for(int shift = 0; shift <= 26; shift++){
+            GenericStaticDictionary<Character, Character> cifrador = createCipher(shift);
+            GenericStaticDictionary<Character, Double> freqEncShift = componerFreqCipher(freqEnc, cifrador);
+            Double similitud = calcularSimilitudCoseno(freqEncShift, frequencies);
+            similitudes[shift] = similitud;
+        }
+        int shift = 0;
+        for (int i = 1; i < similitudes.length; i++) {
+            if (similitudes[i] > similitudes[shift]) {
+                shift = i;
+            }
+        }
+
+        return shift;
+
     }
 }
