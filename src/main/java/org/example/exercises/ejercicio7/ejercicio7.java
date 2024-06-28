@@ -16,11 +16,11 @@ public class ejercicio7 {
             System.out.println("Tope: " + stack.getTop());
             System.out.println("Tamaño: " + stack.getSize());
 
-            // Intentar apilar otro elemento (debería lanzar una excepción)
+            // Intentar apilar otro elemento debería lanzar una excepción
             try {
                 stack.add(40);
             } catch (RuntimeException e) {
-                System.out.println(e.getMessage());  // Imprime: No se puede apilar, la pila ha alcanzado su capacidad máxima
+                System.out.println(e.getMessage());  // No se puede apilar, la pila ha alcanzado su capacidad máxima
             }
 
             // Desapilar un elemento
