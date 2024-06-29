@@ -36,3 +36,13 @@ Dentro de esta clase, se deja a disposición el código para probar las distinto
 #### 5.3
 ####  5.4 - Método Montecarlo para la estimación de $\pi$. (Alejo Keuroghlanian)
 La solución está implementada en las clases `CalculadoraPi` (donde se lleva a cabo la aproximación de $\pi$) y `Montecarlo`, en `org.example.exercises.ejercicio5Montecarlo`. En la solución hacemos uso de las clases `R2Point` y `SetOfR2Points`, en `org.example.classes`.
+
+### Ejercicio 6
+
+#### 6.3 - Cola dinámica cíclica doblemente enlazada (Lorenzo Cucco Nagore)
+ La solución está implementada en la clase `Ejercicio6_3` en `org.example.exercises.ejercicio6`. Se implementó la solución usando una clase *ad-hoc*, `DoublyLinkedQueue` en `org.example.classes.dynamic.nodes`.
+ En la clase `Main` de `org.example.exercises.Ejercicio6_3` se muestra el funcionamiento de la clase `DoublyLinkedQueue`, añadiendo elementos a la cola, eliminando, verificando si la cola está vacía, obteniendo los nodos anteriores y siguientes y el vaciado final de la cola.
+
+#### 6.4 - Conjunto con repetidos (Lorenzo Cucco Nagore)
+La solución está implementada en la clase `Ejercicio6_4` en `org.example.exercises.ejercicio6`. Se implementó la solución usando una clase *ad-hoc*, `MultiSet` en `org.example.classes`.
+En la clase `Main` de `org.example.exercises.Ejercicio6_4` se muestra el funcionamiento de la clase `MultiSet`.
