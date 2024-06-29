@@ -19,6 +19,17 @@ Los ítems 1, 2 y 3 están implementados en la clase `ejercicio1` de `org.exampl
 El análisis de la complejidad se agregó como comentarios al final de las líneas correspondientes. Cada método lleva el análisis de su complejidad debajo de la firma, como comentarios en varias líneas.
 
 ### Ejercicio 2
+#### 2.1 - Stack genérico e invertir sus elementos. (Rodrigo Nieva)
+
+Se creó la clase `GenericStack`  en `org.example.classes` y una interfaz `iGenericStack` en `org.example.interfaces`. La implementación utiliza una clase genérica para permitir que la pila almacene elementos de cualquier tipo gracias al uso de `<T>`. Se han implementado métodos como `add`, `remove`, `top` y `isEmpty` para manipular y consultar la pila.
+
+La solución del ejercicio se encuentra en la carpeta `Generic Util` en `org.example.utils` para que el usuario llame el método cuando lo necesite.
+
+
+#### 2.2 - Copiar un set genérico. (Rodrigo Nieva)
+Se creó la clase `Generic Set` en `org.example.classes` y una interfaz `iGenericSet` en `org.example.interfaces`. La implementación utiliza una clase genérica para permitir copiar elementos de cualquier tipo. En ella se encuentran los métodos `add`, `remove`, `isEmpty`. `choose`. `contains`.
+
+La solución del ejercicio se encuentra en la carpeta `Generic Util` en `org.example.utils` para que el usuario llame el método cuando lo necesite.
 
 ### Ejercicio 3 (Lorenzo Cucco Nagore)
 `QueueOfQueue` es una clase en `org.example.classes`. Ahí se encuentran los distintos métodos utilizados en la clase. Contamos con los métodos análogos a Queues y los solicitados `concaténate`, `flat` y `reverseWithDepth`. Así mismo se modifica el método `toString` a fines de testeo de los métodos antes mencionados. 
@@ -29,12 +40,18 @@ Dentro de esta clase, se deja a disposición el código para probar las distinto
 ### Ejercicio 4
 
 ### Ejercicio 5
-#### 5.1
+#### 5.1 Pila ordenada sin repetidos (Rodrigo Nieva)
+La solución se encuentra en `org.example.exercises.ejercicio2_5` clase: `ejercicio1`. En el ejercicio reutilizamos las clases creadas en el  *Ejercicio 2*: *GenericStack* y *GenericSet*. También, en el mismo código está escrito su complejidad computacional. 
+
 #### 5.2 - Cifrado Cesar (Alejo Keuroghlanian)
  La solución está implementada en la clase `CesarCipher` en `org.example.exercises.ejercicio5_2_Cesar`. Se implementó la solución usando una clase *ad-hoc*, `GenericStaticDictionary` en `org.example.classes`.
  En la clase `Main` de `org.example.exercises.ejercicio5_2_Cesar` se muestra el funcionamiento de la clase `CesarCipher`, encriptando y desencriptando una frase, dejando que el usuario elija la clave para encriptar, y mostrando cómo la clase desencripta el texto.
-#### 5.3
+ 
+#### 5.3 - Paréntesis balanceados modificado (Rodrigo Nieva)
+Como se puede realizar de muchas maneras, nuevamente se reutilizó *GenericStack*. La solución se encuentra en `org.example.exercises.ejercicio2_5` en la clase `ejercicio3` junto a su complejidad computacional.
+
 ####  5.4 - Método Montecarlo para la estimación de $\pi$. (Alejo Keuroghlanian)
+
 La solución está implementada en las clases `CalculadoraPi` (donde se lleva a cabo la aproximación de $\pi$) y `Montecarlo`, en `org.example.exercises.ejercicio5Montecarlo`. En la solución hacemos uso de las clases `R2Point` y `SetOfR2Points`, en `org.example.classes`.
 
 ### Ejercicio 6
@@ -46,3 +63,6 @@ La solución está implementada en las clases `CalculadoraPi` (donde se lleva a 
 #### 6.4 - Conjunto con repetidos (Lorenzo Cucco Nagore)
 La solución está implementada en la clase `Ejercicio6_4` en `org.example.exercises.ejercicio6`. Se implementó la solución usando una clase *ad-hoc*, `MultiSet` en `org.example.classes`.
 En la clase `Main` de `org.example.exercises.Ejercicio6_4` se muestra el funcionamiento de la clase `MultiSet`.
+
+#### 6.5 - Diccionario aleatorio (Rodrigo Nieva)
+Para dar con la solución, se creó la implmenteación (nuevo TDA) `RandomDictionary` en `org.example.classes` y su interfaz `MultipleDictionary` en `org.example.classes`. El TDA está testeado y en funcionamiento para cuando el usuario lo necesite.
