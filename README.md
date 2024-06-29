@@ -20,7 +20,11 @@ El análisis de la complejidad se agregó como comentarios al final de las líne
 
 ### Ejercicio 2
 
-### Ejercicio 3
+### Ejercicio 3 (Lorenzo Cucco Nagore)
+`QueueOfQueue` es una clase en `org.example.classes`. Ahí se encuentran los distintos métodos utilizados en la clase. Contamos con los métodos análogos a Queues y los solicitados `concaténate`, `flat` y `reverseWithDepth`. Así mismo se modifica el método `toString` a fines de testeo de los métodos antes mencionados. 
+
+Los ítems 1, 2 y 3 están implementados en la clase `Ejercicio3` de `org.example.exercises.ejercicio3`. 
+Dentro de esta clase, se deja a disposición el código para probar las distintos métodos solicitados. Cómo los métodos implementados afectan a las QueueOfQueue generados en el test, se procede a dejar como comentario las funciones que no se desean evaluar en esa instancia.
 
 ### Ejercicio 4
 
